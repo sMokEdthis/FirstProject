@@ -1,1 +1,30 @@
+name: run autotests
 
+on:
+  workflow_dispatch:
+    inputs:
+      deployment_target:
+        description: select tests to run
+        required: true
+        type: choice
+        default: all
+        options:
+            - smoke
+            - regression
+            - all
+
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+    name: Tests
+    steps: 
+      - name: coppy source code
+        uses: actions/checkout@v4
+      - name: set up Python env
+        uses: action/setup-python@v5
+        with:
+          python-version: "3.14.6"
+      - name: install dependencies
+        run: pip install -r requirements.txt
+      - name: run tests
+        run: pytest -v
