@@ -21,7 +21,7 @@ jobs:
       - name: coppy source code
         uses: actions/checkout@v4
       - name: set up Python env
-        uses: action/setup-python@v5
+        uses: actions/setup-python@v5
         with:
           python-version: "3.14.6"
       - name: install dependencies
