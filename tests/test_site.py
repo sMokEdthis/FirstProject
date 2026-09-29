@@ -1,6 +1,6 @@
 
-from FirstProject.pages.homepage import HomePage
-from FirstProject.pages.product import ProductPage
+from pages.homepage import HomePage
+from pages.product import ProductPage
 import time
 
 def test_open_s6(driver):
